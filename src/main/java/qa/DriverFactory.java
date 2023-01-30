@@ -8,7 +8,7 @@ public class DriverFactory {
 	
 	static WebDriver driver;
 	
-	public void initBrowser(String browsername)
+	public WebDriver initBrowser(String browsername)
 	{
 		if(browsername.equals("Chrome"))
 		{
@@ -19,6 +19,18 @@ public class DriverFactory {
 		{
 			driver = new FirefoxDriver();
 		}
+		
+		
+		return driver;
 	}
+	
+	
+	public static WebDriver getDriver()
+	{
+		return driver;
+	}
+	
+	
+	
 
 }

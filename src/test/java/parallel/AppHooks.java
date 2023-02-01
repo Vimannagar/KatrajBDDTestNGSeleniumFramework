@@ -28,6 +28,8 @@ public class AppHooks {
 	
 	driver = driverfactory.initBrowser(browsername);
 	
+	driver.manage().window().maximize();
+	
 	}
 	
 	

@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 	
@@ -13,7 +14,13 @@ public class LoginPage {
 	@FindBy(xpath = "//*[@id='nav-link-accountList']")
 	private WebElement   hoverelement;
 	
-	private	By signinhover = By.xpath("//*[@id='nav-flyout-ya-signin']//*[@class='nav-action-button']");
+	@FindBy(xpath = "//*[@id='nav-flyout-ya-signin']//*[@class='nav-action-button']")
+	private WebElement   signinhover;
+	
+
+	@FindBy(xpath = "//*[@id='nav-cart']")
+	private WebElement   carticon;
+	
 
 	private	By email = By.xpath("//*[@id='ap_email']");
 
@@ -27,20 +34,18 @@ public class LoginPage {
 		public LoginPage(WebDriver driver)
 		{
 			this.driver = driver;
+			PageFactory.initElements(driver, this);
 		}
 		
 		public void enterUsername(String usname)
 		{
-			WebElement hover = driver.findElement(hoverelement);
 			
 			Actions act = new Actions(driver);
 			
-			act.moveToElement(hover).perform();
+			act.moveToElement(hoverelement).perform();
 			
-			driver.findElement(signinhover).click();
-			
-			
-			
+			signinhover.click();
+					
 			driver.findElement(email).sendKeys(usname);
 			
 			driver.findElement(continueemail).click();
@@ -64,6 +69,14 @@ public class LoginPage {
 			System.out.println(title);
 			
 			return title;
+		}
+		
+		public boolean isCartIconDisplayed()
+		{
+			boolean isdisplay = carticon.isDisplayed();
+			
+			return isdisplay;
+			
 		}
 		
 

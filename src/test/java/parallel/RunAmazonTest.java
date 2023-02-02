@@ -8,12 +8,17 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
 		
 		plugin = {"pretty",
-				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
+				"rerun:target/failedrun.txt"
 		},
-		
+			
 		glue = {"parallel"},
 		
 		features = {"src/test/resources/parallel"}
+		
+	
+		
+//		features = {"@target/failedrun.txt"}
 		)
 
 

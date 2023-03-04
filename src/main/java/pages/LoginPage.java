@@ -79,5 +79,29 @@ public class LoginPage {
 			
 		}
 		
+		public SearchProduct doLogin(String un , String pwd)
+		{
+//			enter username 
+			Actions act = new Actions(driver);
+			
+			act.moveToElement(hoverelement).perform();
+			
+			signinhover.click();
+			
+			driver.findElement(email).sendKeys(un);
+			
+			driver.findElement(continueemail).click();
+			
+//			enter password
+			driver.findElement(passwordtext).sendKeys(pwd);
+			
+//			click on login
+			
+			driver.findElement(finalsignin).click();
+			
+			return new SearchProduct(driver);
+		}
+		
+		
 
 }

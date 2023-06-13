@@ -1,5 +1,8 @@
 package parallel;
 
+import java.io.FileInputStream;
+import java.util.Properties;
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -21,12 +24,15 @@ public class AppHooks {
 	public void launchBrowser()
 	{
 		 cr = new ConfigReader();
+	
+	String browser_maven=System.getProperty("browser");
 		 
-	String browsername = cr.readProp("browser");
+//	String browsername = cr.readProp("browser");
 	
 	driverfactory = new DriverFactory();
 	
-	driver = driverfactory.initBrowser(browsername);
+	
+	driver = driverfactory.initBrowser(browser_maven);
 	
 	driver.manage().window().maximize();
 	

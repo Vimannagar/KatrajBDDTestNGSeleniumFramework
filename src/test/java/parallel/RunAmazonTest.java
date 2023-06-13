@@ -1,7 +1,5 @@
 package parallel;
 
-import org.testng.annotations.DataProvider;
-
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
@@ -11,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
 				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 				"rerun:target/failedrun.txt"
 		},
-			
+				
 		glue = {"parallel"},
 		
 		features = {"src/test/resources/parallel"}

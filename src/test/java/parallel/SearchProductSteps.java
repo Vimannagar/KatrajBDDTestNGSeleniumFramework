@@ -13,19 +13,18 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class SearchProductSteps {
-	LoginPage loginpage = new LoginPage(DriverFactory.getDriver());
 	
-	SearchProduct searchproduct;
+	SearchProduct searchproduct = new SearchProduct(DriverFactory.getDriver());
 
-@Given("user is already logged in with {string} and {string}")
-public void user_is_already_logged_in_with_and(String un, String pwd) {
-    
-	DriverFactory.getDriver().get("https://www.amazon.in/");
-		
-	 searchproduct = loginpage.doLogin(un, pwd);
-	
-	
-}
+//@Given("user is already logged in with {string} and {string}")
+//public void user_is_already_logged_in_with_and(String un, String pwd) {
+//    
+//	DriverFactory.getDriver().get("https://www.amazon.in/");
+//		
+//	 searchproduct = loginpage.doLogin(un, pwd);
+//	
+//	
+//}
 
 @When("user the text {string} and search")
 public void user_the_text_and_search(String text) {

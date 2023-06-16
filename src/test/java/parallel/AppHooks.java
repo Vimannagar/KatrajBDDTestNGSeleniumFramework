@@ -27,12 +27,14 @@ public class AppHooks {
 	
 	String browser_maven=System.getProperty("browser");
 		 
-//	String browsername = cr.readProp("browser");
+	String browsername = cr.readProp("browser");
 	
 	driverfactory = new DriverFactory();
 	
+	String browser = browser_maven!=null ? browser_maven : browsername ;
 	
-	driver = driverfactory.initBrowser(browser_maven);
+	
+	driver = driverfactory.initBrowser(browser);
 	
 	driver.manage().window().maximize();
 	
